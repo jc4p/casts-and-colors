@@ -1,6 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-karla: var(--font-karla);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,20 +24,164 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-karla), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #E2EAEB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.content {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.find-color-button {
+  width: 100%;
+  background-color: #575358;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.find-color-button:hover {
+  opacity: 0.9;
+}
+
+.find-color-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.color-result {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.color-preview {
+  width: 200px;
+  height: 200px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.color-code {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: var(--font-karla);
+}
+
+.color-explanation {
+  margin-top: 0.5rem;
+  text-align: center;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 600px;
+}
+
+.mint-button {
+  margin-top: 1.5rem;
+  background-color: #10B981;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.mint-button:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+.mint-button:disabled {
+  background-color: #9CA3AF;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.share-button {
+  margin-top: 1rem;
+  background-color: #4F46E5;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.share-button:hover {
+  background-color: #4338CA;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+.share-button:disabled {
+  background-color: #9CA3AF;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.share-result {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.share-result p {
+  margin-bottom: 0.5rem;
+  color: #4B5563;
+}
+
+.share-link {
+  color: #4F46E5;
+  text-decoration: underline;
+  word-break: break-all;
+  font-family: var(--font-karla);
+}
+
+.share-link:hover {
+  color: #4338CA;
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: #dc2626;
+  text-align: center;
+  font-weight: 500;
 }
 
 @media (prefers-color-scheme: dark) {
